@@ -75,7 +75,23 @@ app.post('/forgetpassword', async (req,res)=>{
         res.send('email not entered')
     }
 })
+
 app.get('/changepassword/:token', (req, res)=>{
+    const d=new Date()
+    let t=d.getTime()
+    const secret='what is the color of orange'
+    const token=req.params.token
+    const decodedtoken=jwt.decode(token, secret)
+    const time=decodedtoken.time
+    if(t-time<100000){
+        res.render('changepasss',{token})
+    }
+    else{
+        res.send('error loading page')
+    }
+})
+
+app.post('/changepassword/:token', async (req, res)=>{
     const d=new Date()
     let t=d.getTime()
     const secret='what is the color of orange'
@@ -84,19 +100,17 @@ app.get('/changepassword/:token', (req, res)=>{
     const email=decodedtoken.email
     const time=decodedtoken.time
     if(t-time<100000){
-        res.render('changepasss',{email})
+        await user.updateOne({email:email}, {password:req.body.pass1}, (err, res)=>{
+            if(err) throw err;
+            console.log('password updated successfully '+res)
+        })
+        res.redirect('/');
     }
     else{
         res.send('error loading page')
     }
 })
 
-app.post('/changepass', async (req, res)=>{
-    await user.updateOne({email:req.body.email}, {password:req.body.pass1}, (err, res)=>{
-        if(err) throw err;
-        console.log('password updated successfully '+res)
-    })
-    res.redirect('/');
-})
+
 
 app.listen(3030)

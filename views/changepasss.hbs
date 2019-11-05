@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/changepass" method="POST">
-        <input type="hidden" name="email" value={{email}}>
+    <form action="/changepassword/{{token}}" method="POST">
         <input type="password" name="pass1" placeholder="password"><br/>
         <input type="password" name="pass2" placeholder="password"><br/>
         <button type="submit">submit</button><br/>
