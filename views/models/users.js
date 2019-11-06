@@ -32,12 +32,17 @@ const userSchema=new User({
                 throw new Error('password cannot contain "password"')
             }
         }
+    },
+    token:{
+        type:String,
+        trim:true,
+        default:''
     }
 })
 
 const user=mongoose.model('user', userSchema)
 
-// const u=[{name:'rahul',email:'rahul.yadav1@mail.vinove.com',password:'milan1234'}]
+// const u=[{name:'rahul',email:'rahul.yadav1@mail.vinove.com',password:'milan1234'},{name:'milan',email:'milan.srivastava@mail.vinove.com',password:'rahul1234'}]
 
 // user.insertMany(u)
 
