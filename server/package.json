@@ -1,0 +1,24 @@
+{
+  "name": "forget_password",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "jsx": "^0.9.89",
+    "jwt-simple": "^0.5.6",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.7.7",
+    "nodemailer": "^6.3.1",
+    "nodemon": "^1.19.4",
+    "validator": "^12.0.0"
+  }
+}
