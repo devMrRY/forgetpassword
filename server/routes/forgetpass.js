@@ -8,7 +8,6 @@ router.use(express.json())
 
 router.post('/forgetpassword', async (req,res)=>{
     const data=JSON.parse(req.body.params.body)
-    console.log(data.email)
     const id=data.email
     if(id!=undefined){
         await user.findOne({email:id}).then((value)=>{
