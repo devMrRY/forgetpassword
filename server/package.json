@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.0.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jsx": "^0.9.89",
     "jwt-simple": "^0.5.6",
     "mongo": "^0.1.0",
